@@ -83,6 +83,10 @@ class Movie {
     }
 }
 
+// creazione di un movie
+const movie1 = new Movie('titanic', 1990, 'Drama', 10, 'movie');
+console.log(movie1);
+
 // estensione classe movie con TvSeries
 class TvSeries extends Movie {
     // sovrascriviamo il constructor precedente
@@ -93,4 +97,8 @@ class TvSeries extends Movie {
         this.seasons = seasons;
     }
 }
+
+// creazione serie tv
+const tv1 = new TvSeries('Naruto', 2000, 'Fantasy', 8, 'tv', 2);
+console.log(tv1);
 
