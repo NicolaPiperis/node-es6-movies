@@ -81,11 +81,17 @@ class Movie {
         this.rating = rating;
         this.type = type;
     }
+
+    // Creazione funzione tostring
+    toString(){
+        return `${this.title} è un film di genere ${this.genre}. E’ stato rilasciato nel ${this.year} ed ha un voto di ${this.rating}`
+    };
+
 }
 
 // creazione di un movie
 const movie1 = new Movie('titanic', 1990, 'Drama', 10, 'movie');
-console.log(movie1);
+console.log(movie1.toString());
 
 // estensione classe movie con TvSeries
 class TvSeries extends Movie {
@@ -96,9 +102,14 @@ class TvSeries extends Movie {
         // e aggiungendo una nuova chiave
         this.seasons = seasons;
     }
+
+    // Creazione funzione tostring
+    toString(){
+        return `${this.title} è una serie tv di genere ${this.genre}. La prima stagione è stata rilasciato nel ${this.year} ed in totale sono state prodotte ${this.seasons} stagioni. Ha un voto di ${this.rating}`
+    };
 }
 
 // creazione serie tv
 const tv1 = new TvSeries('Naruto', 2000, 'Fantasy', 8, 'tv', 2);
-console.log(tv1);
+console.log(tv1.toString());
 
