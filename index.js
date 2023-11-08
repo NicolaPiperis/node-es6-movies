@@ -160,12 +160,22 @@ function genreArrayFunction(movies) {
 console.log(genreArrayFunction(movies));
 
 
-// incompleto
-function filterMoviesByGenre (genere) {
-    const filteredMovies = movies.filter(movie => movie.genre === genere);
-    return filteredMovies.
+// function filterMoviesByGenre (genere) {
+//     const filteredMovies = movies.filter(movie => movie.genre === genere);
+//     return filteredMovies.map(movie => movie.toString());
 
+// };
+// console.log(filterMoviesByGenre("Drama"));
+
+function filterMoviesByGenre(genre) {
+    const filteredMovies = movies.filter(movie => movie.genre === genre);
+    return filteredMovies.map(movie => {
+        if (movie.type === "tv") {
+            return new TvSeries(movie.title, movie.year, movie.genre, movie.rating, movie.type, movie.seasons).toString();
+        } else {
+            return new Movie(movie.title, movie.year, movie.genre, movie.rating, movie.type).toString();
+        }
+    });
 }
 
-
-
+console.log(filterMoviesByGenre("Drama").join('\n'));
