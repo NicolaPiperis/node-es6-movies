@@ -5,11 +5,12 @@ Creare una classe TvSeries che estenda la classe Movie e ne aggiunta la propriet
 Entrambe le classi dovranno avere un metodo toString() che ritorni una stringa con i dati del film, tipo:
 Jaws è un film di genere Drama. E’ stato rilasciato nel 1975 ed ha un voto di 8
 Breaking Bad è una serie tv di genere Drama. La prima stagione è stata rilasciato nel 2008 ed in totale sono state prodotte 5 stagioni. Ha un voto di 9.5
-
 Tramite la funzione .map(), creare un nuovo array dove per ogni elemento dell’array di oggetti viene creata un istanza della classe Movie o TvSerie in base al type e salvata nel nuovo array.
+
 Creiamo una funzione che restituisca la media dei voti di tutti i film per un determinato genere. Prevedere un argomento per la lista dei film ed uno per il genere.
 Creiamo una funzione che restituisca la lista di tutti i generi dei film, senza che questi si ripetano.
 Creiamo una funzione che filtri i film in base ad un genere passato come argomento e ne ritorni un array con all’interno il risultato della funzione toString() di ogni film.
+
 Eseguire tutto il codice da terminale tramite NodeJs e stampiamo nel terminale il risultato delle varie funzioni.
 BONUS:
 Rendere le proprietà delle classi private e creare dei setter e dei getter per potervi accedere.
@@ -124,4 +125,22 @@ const newArray = movies.map(
     }
 )
 console.log(newArray);
+
+// media voti per genere, funzione per il calcolo
+function avarageRatingfunction(movies, genre) {
+    // array creato dall'array completo di film e serie tv, filtrato verificando se gli items all'interno abbiano il genere passato come secondo argomento della funzione
+    const chosenMoviesGenre = movies.filter(movie => movie.genre.includes(genre));
+
+    // variabile che calcola la somma dell'array ottenuto, utilizzando la funzione reduce 
+    const sumRating = chosenMoviesGenre.reduce((acc, movie) => acc + movie.rating, 0);
+
+    // variabile che divide la somma per il numero di film con quel determinato genere
+    const avarageRating = sumRating / chosenMoviesGenre.length;
+
+    // risposta
+    return avarageRating;
+
+};
+
+console.log(avarageRatingfunction(movies, "Drama"));
 
