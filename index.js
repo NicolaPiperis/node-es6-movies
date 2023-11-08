@@ -2,10 +2,10 @@
 Definire un array di oggetti; ogni oggetto rappresenta un film o serie tv, che è caratterizzato da: title, year, genre, rating, type (movie o tv), seasons (solo per serie tv).
 Creare una classe Movie che contenga le informazioni sopra indicate.
 Creare una classe TvSeries che estenda la classe Movie e ne aggiunta la proprietà seasons.
-
 Entrambe le classi dovranno avere un metodo toString() che ritorni una stringa con i dati del film, tipo:
 Jaws è un film di genere Drama. E’ stato rilasciato nel 1975 ed ha un voto di 8
 Breaking Bad è una serie tv di genere Drama. La prima stagione è stata rilasciato nel 2008 ed in totale sono state prodotte 5 stagioni. Ha un voto di 9.5
+
 Tramite la funzione .map(), creare un nuovo array dove per ogni elemento dell’array di oggetti viene creata un istanza della classe Movie o TvSerie in base al type e salvata nel nuovo array.
 Creiamo una funzione che restituisca la media dei voti di tutti i film per un determinato genere. Prevedere un argomento per la lista dei film ed uno per il genere.
 Creiamo una funzione che restituisca la lista di tutti i generi dei film, senza che questi si ripetano.
@@ -112,4 +112,16 @@ class TvSeries extends Movie {
 // creazione serie tv
 const tv1 = new TvSeries('Naruto', 2000, 'Fantasy', 8, 'tv', 2);
 console.log(tv1.toString());
+
+// creazione nuovo array con map, utilizzando le istanze create tv e movie, sulla base dell'array di oggetti Movies
+const newArray = movies.map(
+    (item) => {
+        if (item.type === "movie") {
+            return new Movie(item.title, item.year, item.genre, item.rating, item.type)
+        } else if (item.type === "tv") {
+            return new TvSeries(item.title, item.year, item.genre, item.rating, item.type, item.seasons)
+        }
+    }
+)
+console.log(newArray);
 
