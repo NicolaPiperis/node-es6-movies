@@ -2,6 +2,7 @@
 Definire un array di oggetti; ogni oggetto rappresenta un film o serie tv, che è caratterizzato da: title, year, genre, rating, type (movie o tv), seasons (solo per serie tv).
 Creare una classe Movie che contenga le informazioni sopra indicate.
 Creare una classe TvSeries che estenda la classe Movie e ne aggiunta la proprietà seasons.
+
 Entrambe le classi dovranno avere un metodo toString() che ritorni una stringa con i dati del film, tipo:
 Jaws è un film di genere Drama. E’ stato rilasciato nel 1975 ed ha un voto di 8
 Breaking Bad è una serie tv di genere Drama. La prima stagione è stata rilasciato nel 2008 ed in totale sono state prodotte 5 stagioni. Ha un voto di 9.5
@@ -71,5 +72,25 @@ const movies = [
     }
   ];
 
+// creazione classe movie
+class Movie {
+    constructor(title, year, genre, rating, type) {
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.rating = rating;
+        this.type = type;
+    }
+}
 
+// estensione classe movie con TvSeries
+class TvSeries extends Movie {
+    // sovrascriviamo il constructor precedente
+    constructor(title, year, genre, rating, type, seasons) {
+        // utilizzando il constructor dalla classe genitore
+        super(title, year, genre, rating, type);
+        // e aggiungendo una nuova chiave
+        this.seasons = seasons;
+    }
+}
 
